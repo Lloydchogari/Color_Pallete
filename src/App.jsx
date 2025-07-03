@@ -85,7 +85,7 @@ const App = () => {
               </button>
             </div>
           ) : (
-            <div className="overflow-y-auto max-h-[90vh] backdrop-blur-lg bg-white/10 border border-white/30 shadow-2xl rounded-2xl p-6 md:p-8 w-full max-w-xl text-center">
+            <div className="overflow-y-hidden max-h-[90vh] backdrop-blur-lg bg-white/10 border border-white/30 shadow-2xl rounded-2xl p-6 md:p-8 w-full max-w-xl text-center">
               <h1 className="text-2xl md:text-3xl font-bold mb-4">Upload an Image</h1>
               <input
                 type="file"
