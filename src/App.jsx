@@ -9,7 +9,7 @@ const generateCircles = () => {
     id: i,
     color: generateRandomColor(),
     top: Math.random() * 100,
-    left: Math.random() * 100,
+    left: Math.random() * 90, // Reduced to avoid overflow
     size: 30 + Math.random() * 70,
     delay: Math.random() * 5,
     duration: 4 + Math.random() * 6,
@@ -51,8 +51,8 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen bg-blue-950 relative overflow-auto text-white font-chillax">
-      {/* ANIMATED CIRCLE BACKGRND */}
+    <div className="min-h-screen w-screen max-w-full bg-blue-950 relative overflow-x-hidden overflow-y-auto text-white font-chillax">
+      {/* ANIMATED CIRCLE BACKGROUND */}
       {circles.map((circle) => (
         <div
           key={circle.id}
@@ -106,7 +106,6 @@ const App = () => {
                 >
                   Extract Colors 🎨
                 </button>
-                
               </>
             )}
 
