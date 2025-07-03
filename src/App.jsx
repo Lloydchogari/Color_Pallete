@@ -9,7 +9,7 @@ const generateCircles = () => {
     id: i,
     color: generateRandomColor(),
     top: Math.random() * 100,
-    left: Math.random() * 90,
+    left: Math.random() * 90, // stay within bounds
     size: 30 + Math.random() * 70,
     delay: Math.random() * 5,
     duration: 4 + Math.random() * 6,
@@ -68,23 +68,23 @@ const App = () => {
         />
       ))}
 
-      {/* Content container scrollable if needed */}
+      {/* Scrollable content area fixed to screen height */}
       <div className="absolute inset-0 overflow-y-auto">
-        {!showUploader ? (
-          <div className="h-screen w-full flex flex-col items-center justify-center z-10 relative text-center bg-black/30 backdrop-blur-sm px-4">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">🎨 Magic Color Palette</h1>
-            <p className="mb-6 text-md md:text-lg text-gray-200">
-              Upload an image to reveal its beautiful palette
-            </p>
-            <button
-              onClick={() => setShowUploader(true)}
-              className="bg-white text-blue-900 px-6 py-3 rounded-xl font-semibold hover:bg-gray-100 transition drop-shadow-md text-sm md:text-base"
-            >
-              Get Started
-            </button>
-          </div>
-        ) : (
-          <div className="w-full h-screen flex items-center justify-center z-10 p-4">
+        <div className="h-full w-full flex items-center justify-center p-4">
+          {!showUploader ? (
+            <div className="h-full w-full flex flex-col items-center justify-center text-center bg-black/30 backdrop-blur-sm px-4">
+              <h1 className="text-4xl md:text-5xl font-bold mb-4">🎨 Magic Color Palette</h1>
+              <p className="mb-6 text-md md:text-lg text-gray-200">
+                Upload an image to reveal its beautiful palette
+              </p>
+              <button
+                onClick={() => setShowUploader(true)}
+                className="bg-white text-blue-900 px-6 py-3 rounded-xl font-semibold hover:bg-gray-100 transition drop-shadow-md text-sm md:text-base"
+              >
+                Get Started
+              </button>
+            </div>
+          ) : (
             <div className="overflow-y-auto max-h-[90vh] backdrop-blur-lg bg-white/10 border border-white/30 shadow-2xl rounded-2xl p-6 md:p-8 w-full max-w-xl text-center">
               <h1 className="text-2xl md:text-3xl font-bold mb-4">Upload an Image</h1>
               <input
@@ -128,8 +128,8 @@ const App = () => {
                 </div>
               )}
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </div>
   );
